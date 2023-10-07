@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Users = () => {
     const [users,setUsers] = useState([])
     useEffect(() => {
-        fetch('https://user-profile-backend-9y9q.vercel.app/users')
+        fetch('https://user-profile-backend-pi.vercel.app/users')
         .then(response => response.json())
         .then(data => setUsers(data))
         

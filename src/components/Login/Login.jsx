@@ -1,9 +1,11 @@
-import React from 'react';
+import SocialLogin from "../SocialLogin/SocialLogin";
+
+
 
 const Login = () => {
     return (
         <div>
-            this is login
+         <SocialLogin />
         </div>
     );
 };

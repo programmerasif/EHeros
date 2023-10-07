@@ -6,7 +6,7 @@ const Details = () => {
 
     const [users,setUsers] = useState([])
     useEffect(() => {
-        fetch('https://user-profile-backend-9y9q.vercel.app/users')
+        fetch('https://user-profile-backend-pi.vercel.app/users')
         .then(response => response.json())
         .then(data => setUsers(data))
         
@@ -17,7 +17,7 @@ const Details = () => {
     return (
         <div>
            <div>
-            <div className="bgImage flex justify-self-center items-center">
+            <div className="bgImage flex justify-self-center items-center mt-[60px]">
                 <div className=" text-5xl w-full px-2 xl:w-[80%] mx-auto flex flex-col gap-5">
                     <div className="font-semibold xl:font-bold">{user?.name}</div>
                     <div className=" text-sm xl:w-[60%] w-full ">{user?.description}</div>
