@@ -32,9 +32,9 @@ const AuthProviders = ({ children }) => {
     // }
 
     
-    // const logOut = () => {
-    //     return signOut(auth)
-    // }
+    const logOut = () => {
+        return signOut(auth)
+    }
     
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -48,7 +48,7 @@ const AuthProviders = ({ children }) => {
         loading,
         setloading,
         googleSignin,
-        // logOut,
+        logOut,
         // signUp,
         // login,
         // profileUpdate,

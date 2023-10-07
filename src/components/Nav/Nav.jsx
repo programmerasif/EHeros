@@ -3,14 +3,24 @@ import profile from '../../assets/person.png'
 import { FaXmark,FaBars} from "react-icons/fa6";
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
+import { FaSignOutAlt } from "react-icons/fa";
 
 const Nav = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const {user} = useContext(AuthContext)
+    const {user,logOut} = useContext(AuthContext)
     const toggleMenu = () => {
       setIsOpen(!isOpen);
     };
-    console.log(user.photoURL);
+  
+    const handelLogout = () =>{
+      logOut()
+      .then(() => {
+          // Sign-out successful.
+        }).catch((err) => {
+          // An error happened.
+          console.log(err);
+        });
+  }
     return(
         <>
        
@@ -28,28 +38,28 @@ const Nav = () => {
         {isOpen ? <FaXmark /> : <FaBars />}
       </button>
       <ul
-        className={`absolute top-4 md:top-0 ${user&& "border"} right-1 font-semibold bg-white text-black shadow-lg md:shadow-none rounded-md z-30  p-10 md:p-0 md:bg-transparent transition-transform duration-300 md:flex ml-auto md:relative ${
+        className={`absolute top-4 md:top-0 ${user&& "ring-2 ring-[#61afcb] duration-300"} right-1 font-semibold bg-white text-black shadow-lg md:shadow-none rounded-md z-30  p-10 md:p-0 md:bg-transparent transition-transform duration-300 md:flex ml-auto md:relative ${
           isOpen ? `transform translate-x-0 md:translate-x-0 ${user && "border"}` : `transform translate-x-52 md:translate-x-0 ${user && "border"}`
         }`}
       >
        {
-        user &&  <li className=" cursor-pointer p-2">
-        <NavLink to="/logout"  className={({ isActive,  }) =>isActive ? "text-[#61afcb] border-b-4 border-[#61afcb] pb-1  pe-1" : "" }>log out</NavLink>
+        user?.email &&  <li className=" cursor-pointer p-2" onClick={handelLogout}>
+        <NavLink   className={({ isActive,  }) =>isActive ? "text-[#61afcb] border-b-4 border-[#61afcb] pb-1  pe-1 flex justify-center items-center gap-2" : " text-[#61afcb] font-bold duration-300 flex justify-center items-center gap-2" }><FaSignOutAlt /> <span> Log-Out</span></NavLink>
         </li>
        }
         {
-            !user && <li className=" cursor-pointer p-2">
+            !user?.email && <li className=" cursor-pointer p-2">
             <NavLink to="/login"  className={({ isActive,  }) =>isActive ? "text-[#61afcb] border-b-4 border-[#61afcb] pb-1  pe-1" : "" }>Login</NavLink>
             </li>
         }
         {
-            !user && <li className=" cursor-pointer p-2">
+            !user?.email && <li className=" cursor-pointer p-2">
             <NavLink to="/register"  className={({ isActive,  }) =>isActive ? "text-[#61afcb] border-b-4 border-[#61afcb] pb-1  pe-1" : "" }>Register</NavLink>
         </li>
         }
         <li className=" cursor-pointer p-2">
             {
-                !user.photoURL? <img src={profile} alt="" className='w-7'/> : <img src={user.photoURL}  alt="" className='w-7 rounded-full'/>
+                !user?.photoURL? <img src={profile} alt="" className='w-7'/> : <img src={user?.photoURL}  alt="" className='w-7 rounded-full'/>
             }
         </li>
         <button

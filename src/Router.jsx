@@ -4,6 +4,7 @@ import Details from "./components/Details/Details";
 import Main from "./Main/Main";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
+import EditPage from "./components/EditPage/EditPage";
 
 
 
@@ -29,6 +30,11 @@ export const router = createBrowserRouter([
               {
                 path: "/register",
                 element:<Register />
+              },
+              {
+                path: "edit/:id",
+                element:<EditPage />,
+                loader: ({params}) => {return params }
               }
         ]
     }
