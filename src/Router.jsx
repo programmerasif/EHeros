@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import Users from "./components/Users";
 import Details from "./components/Details/Details";
 import Main from "./Main/Main";
+import Login from "./components/Login/Login";
+import Register from "./components/Register/Register";
 
 
 
@@ -19,6 +21,14 @@ export const router = createBrowserRouter([
                   path:"details/:id",
                   element: <Details />,
                   loader: ({params}) => {return params }
+              },
+              {
+                path: "/login",
+                element:<Login />
+              },
+              {
+                path: "/register",
+                element:<Register />
               }
         ]
     }

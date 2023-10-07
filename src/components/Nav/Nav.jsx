@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import profile from '../../assets/person.png'
 import { FaXmark,FaBars} from "react-icons/fa6";
+import { NavLink } from 'react-router-dom';
 
 const Nav = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +16,7 @@ const Nav = () => {
       <div className=" text-xl h-full  font-semibold md:mb-0">
 
      <div className='text-xl md:text-2xl xl:text-3xl font-bold '>
-        E-HEROS
+     <NavLink to="/"  className={({ isActive,  }) =>isActive ? "text-[#61afcb] border-b-4 border-[#61afcb] pb-1  pe-1" : "" }>E-HEROS</NavLink>
      </div>
       </div>
       <button
@@ -29,8 +30,12 @@ const Nav = () => {
           isOpen ? 'transform translate-x-0 md:translate-x-0' : 'transform translate-x-52 md:translate-x-0'
         }`}
       >
-        <li className=" cursor-pointer p-2">Login</li>
-        <li className=" cursor-pointer p-2">Register</li>
+        <li className=" cursor-pointer p-2">
+        <NavLink to="/login"  className={({ isActive,  }) =>isActive ? "text-[#61afcb] border-b-4 border-[#61afcb] pb-1  pe-1" : "" }>Login</NavLink>
+        </li>
+        <li className=" cursor-pointer p-2">
+            <NavLink to="/register"  className={({ isActive,  }) =>isActive ? "text-[#61afcb] border-b-4 border-[#61afcb] pb-1  pe-1" : "" }>Register</NavLink>
+        </li>
         <li className=" cursor-pointer p-2">
             <img src={profile} alt="" className='w-7'/>
         </li>
