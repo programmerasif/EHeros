@@ -11,13 +11,15 @@ const Users = () => {
         
       }, []);
     return (
-        <div className="bg-[#ADD8E6] pt-5">
+        <div className="bg-[#ADD8E6] pt-28">
+          
+            <div className=" relative">
              <>
-        <form action="" className="flex flex-col md:flex-row px-3 justify-center items-center gap-3 mb-5">
+        <form action="" className="flex flex-col md:flex-row px-3 justify-center items-center gap-3 mb-5 fixed w-full z-20 top-[60px] md:top-[75px] bg-[#ffffff3e] py-2">
                 <input type="text" className="xl:w-[40%] w-full  py-3 rounded-md placeholder:italic placeholder:text-text-slate-400 px-5 focus:outline-none border focus:border-[#61afcb]" placeholder="Search for Profile..."/>
                 <button className="bg-[#61afcb] font-semibold w-full md:w-32 text-white px-8 py-3 rounded-md " >Search</button>
         </form>
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 w-full xl:w-[90%] gap-5 xl:gap-10 mx-auto px-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 w-full xl:w-[90%] gap-5 xl:gap-10 mx-auto px-3 mt-20">
             {
                 users.map(item => <div key={item._id}>
                     <div className="flex gap-3 items-center  bg-white drop-shadow-2xl rounded-xl">
@@ -36,6 +38,7 @@ const Users = () => {
             }
         </div>
         </>
+        </div>
         </div>
     );
 };
