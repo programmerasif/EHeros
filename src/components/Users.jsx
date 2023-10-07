@@ -11,7 +11,7 @@ const Users = () => {
         
       }, []);
     return (
-        <div>
+        <div className="bg-[#ADD8E6] pt-5">
              <>
         <form action="" className="flex flex-col md:flex-row px-3 justify-center items-center gap-3 mb-5">
                 <input type="text" className="xl:w-[40%] w-full  py-3 rounded-md placeholder:italic placeholder:text-text-slate-400 px-5 focus:outline-none border focus:border-[#61afcb]" placeholder="Search for Profile..."/>
