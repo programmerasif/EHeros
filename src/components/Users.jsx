@@ -27,7 +27,7 @@ const Users = () => {
                     <span className='text-gray-500 text-sm'>Member science {item?.science}</span>
                     <div className='text-gray-500 text-sm'>Title: <span className='font-bold text-[#1d1c1c]'>{item?.jobTitle}</span></div>
                     <div className='text-gray-500 text-sm'>Email: <span className='font-bold text-[#1d1c1c]'>{item?.email}</span></div>
-                   <Link to={`/Profile/${item?._id}`}><button className='bg-blue-500 text-white font-semibold xl:font-bold px-2 py-1  xl:py-2 xl:px-3 rounded-md'>View Profile</button></Link>
+                   <Link to={`/details/${item?._id}`}><button className='bg-blue-500 text-white font-semibold xl:font-bold px-2 py-1  xl:py-2 xl:px-3 rounded-md'>View Profile</button></Link>
                     
                    
                 </div>
