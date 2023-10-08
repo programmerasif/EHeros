@@ -34,7 +34,7 @@ const SocialLogin = () => {
     return (
      
         
-        <button className="bg-black text-white mt-32 " onClick={handelGoogleLogin}> <span className="text-3xl"><FcGoogle /></span> Google</button>
+        <button className=" text-black font-bold bg-gray-200 w-full flex justify-center items-center gap-3 py-2 mt-5 rounded-md" onClick={handelGoogleLogin}> <span className="text-3xl"><FcGoogle /></span> Google</button>
       
     );
   };
