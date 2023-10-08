@@ -6,13 +6,13 @@ const Details = () => {
 
     const [users,setUsers] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/users')
+        fetch('https://server-forassiignment11.vercel.app/users')
         .then(response => response.json())
         .then(data => setUsers(data))
         
       }, []);
       const { id } = useParams();
-      console.log(id);
+      
     const user = users.find(user => user?._id === id);
     return (
         <div>

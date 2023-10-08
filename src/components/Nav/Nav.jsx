@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import profile from '../../assets/person.png'
 import { FaXmark,FaBars} from "react-icons/fa6";
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
 import { FaSignOutAlt } from "react-icons/fa";
 
@@ -57,11 +57,29 @@ const Nav = () => {
             <NavLink to="/register"  className={({ isActive,  }) =>isActive ? "text-[#61afcb] border-b-4 border-[#61afcb] pb-1  pe-1" : "" }>Register</NavLink>
         </li>
         }
+
+        <li className=" cursor-pointer p-2">
+            {user?.email &&
+                <NavLink to="/newAdd" className={({ isActive,  }) =>isActive ? "text-[#61afcb] border-b-4 border-[#61afcb] pb-1  pe-1 flex justify-center items-center gap-2" : " text-[#61afcb] font-bold duration-300 flex justify-center items-center gap-2" }  >
+                Add New User
+            </NavLink>
+            }
+        </li>
+        <li className=" cursor-pointer p-2">
+            {
+                <NavLink to="/" className={({ isActive,  }) =>isActive ? "text-[#61afcb] border-b-4 border-[#61afcb] pb-1  pe-1 flex justify-center items-center gap-2" : " text-[#61afcb] font-bold duration-300 flex justify-center items-center gap-2" }  >
+                Home
+            </NavLink>
+            }
+        </li>
         <li className=" cursor-pointer p-2">
             {
                 !user?.photoURL? <img src={profile} alt="" className='w-7'/> : <img src={user?.photoURL}  alt="" className='w-7 rounded-full'/>
             }
         </li>
+
+        
+
         <button
         onClick={toggleMenu}
         className="md:hidden me-auto absolute top-0 p-3 shadow-sm rounded-md border left-0 text-black focus:outline-none"

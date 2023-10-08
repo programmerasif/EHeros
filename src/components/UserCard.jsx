@@ -7,7 +7,7 @@ const UserCard = ({item}) =>  {
     return (
         <div>
           <div className="relative">
-                    <Link to={`edit/${item?._id}`} className="absolute right-5 top-5 p-3 border rounded-full text-[#3b82f6] hover:bg-[#3b82f6] hover:text-white duration-300 z-20"><FaPen /> </Link>
+                    <Link to={`edit/${item?._id}`} className="absolute right-5 top-5 p-3 border rounded-full text-[#3b82f6] hover:bg-[#3b82f6] hover:text-white duration-300 z-10"><FaPen /> </Link>
                     <div className="flex gap-3 items-center  bg-white drop-shadow-2xl rounded-xl">
                 <img src={item?.image} alt="" className='w-36  xl:w-52 rounded-xl'/>
                 <div className='text-start pe-5 flex flex-col gap-2 xl:gap-4'>

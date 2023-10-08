@@ -9,7 +9,7 @@ const EditPage = () => {
     const [update,setUpdate] = useState([])
     const navigete = useNavigate()
     useEffect(() => {
-        fetch('http://localhost:5000/users')
+        fetch('https://server-forassiignment11.vercel.app/users')
         .then(response => response.json())
         .then(data => {
             const d = data.find(item => item._id == id.id)
@@ -29,7 +29,7 @@ const EditPage = () => {
          console.log(updatedData);
 
 
-         fetch(`http://localhost:5000/updateUser/${id.id}`, {
+         fetch(`https://server-forassiignment11.vercel.app/updateUser/${id.id}`, {
             method: 'PATCH', 
             headers: {
               'Content-Type': 'application/json', 
@@ -59,13 +59,7 @@ const EditPage = () => {
              
               console.error('Error:', error);
             });
-      }
-    
-    
-     
-
-   
-      
+      }    
     return (
         <div className="bg-[#61afcb] pt-32 min-h-screen">
             <div className=" w-3/5 mx-auto  bg-white p-10 rounded-md">

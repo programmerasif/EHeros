@@ -6,6 +6,7 @@ import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import EditPage from "./components/EditPage/EditPage";
 import Privaterout from "./Privaterout/Privaterout";
+import NewUser from "./components/NewUser/NewUser";
 
 
 
@@ -34,7 +35,7 @@ export const router = createBrowserRouter([
               },
               {
                 path: "/newAdd",
-                element:<Register />
+                element:<NewUser />
               },
               {
                 path: "edit/:id",

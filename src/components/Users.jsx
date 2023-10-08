@@ -10,7 +10,7 @@ const Users = () => {
    
     
     useEffect(() => {
-        fetch('http://localhost:5000/users')
+        fetch('https://server-forassiignment11.vercel.app/users')
         .then(response => response.json())
         .then(data => setUsers(data))
         
@@ -38,8 +38,8 @@ const Users = () => {
         }
      
     return (
-        <div className="bg-[#ADD8E6] min-h-screen pt-28">
-          
+        <div className="bg-[#ADD8E6] min-h-screen pt-28 pb-12">
+
             <div className=" relative">
              <>
        <form onSubmit={handelSearch} className="flex mt-5 flex-col md:flex-row px-3 justify-center items-center gap-3 mb-5 fixed w-full z-20 top-[60px] md:top-[75px] bg-[#ffffff3e] py-2">
@@ -51,7 +51,7 @@ const Users = () => {
     
             <input  className="bg-[#61afcb] font-semibold w-full md:w-32 text-white px-8 py-3 rounded-md " type='submit'  value='search' />
         </form>
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 w-full xl:w-[90%] gap-5 xl:gap-10 mx-auto px-3 mt-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 w-full xl:w-[90%] gap-5 xl:gap-10 mx-auto px-3 mt-44 md:mt-32">
             {
               search ? searchUser?.map(item => <UserCard key={item?._id} item={item}/>) :  users?.map(item => <UserCard key={item?._id} item={item}/>)
             }
