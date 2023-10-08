@@ -11,9 +11,8 @@ const Login = () => {
     const [err, setError] = useState()
     const navigate = useNavigate()
   const handellogin = (e) => {
-    e.preventDefault();
-    const form = e.target
-        
+        e.preventDefault();
+        const form = e.target
         const email = form.username.value;
         const password = form.password.value;
         login(email, password)

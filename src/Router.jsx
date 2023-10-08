@@ -33,6 +33,10 @@ export const router = createBrowserRouter([
                 element:<Register />
               },
               {
+                path: "/newAdd",
+                element:<Register />
+              },
+              {
                 path: "edit/:id",
                 element: <Privaterout><EditPage /></Privaterout>,
                 loader: ({params}) => {return params }
