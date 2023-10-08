@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.active {
-  font-weight: bold;
-  color: blue;
-}
+/* body{
+  background-color: #ADD8E6;
+} */

@@ -1,42 +1,59 @@
 import { useEffect, useState } from "react";
-import { FaPen } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import UserCard from "./UserCard";
+import Swal from "sweetalert2";
 
 
 const Users = () => {
     const [users,setUsers] = useState([])
+    const [searchUser, setsearchUser] = useState([])
+    const [search,isSearch] = useState(false)
+   
+    
     useEffect(() => {
-        fetch('https://user-profile-backend-pi.vercel.app/users')
+        fetch('http://localhost:5000/users')
         .then(response => response.json())
         .then(data => setUsers(data))
         
       }, []);
+
+      const handelSearch = (e) =>{
+        e.preventDefault();
+        const form = e.target
+        const text = form.text.value;
+        
+        const srcReasult = users.find(item=> item.name.toLowerCase().includes(text.toLowerCase()))
+        if (!srcReasult) {
+            form.text.value = '';
+            return Swal.fire({
+                position: 'center',
+                icon: 'info',
+                title: 'No user found',
+                showConfirmButton: false,
+                timer: 1500
+              })
+        }
+        setsearchUser([srcReasult]);
+        isSearch(true)
+
+        }
+     
     return (
-        <div className="bg-[#ADD8E6] pt-28">
+        <div className="bg-[#ADD8E6] min-h-screen pt-28">
           
             <div className=" relative">
              <>
-        <form action="" className="flex flex-col md:flex-row px-3 justify-center items-center gap-3 mb-5 fixed w-full z-20 top-[60px] md:top-[75px] bg-[#ffffff3e] py-2">
-                <input type="text" className="xl:w-[40%] w-full  py-3 rounded-md placeholder:italic placeholder:text-text-slate-400 px-5 focus:outline-none border focus:border-[#61afcb]" placeholder="Search for Profile..."/>
-                <button className="bg-[#61afcb] font-semibold w-full md:w-32 text-white px-8 py-3 rounded-md " >Search</button>
+       <form onSubmit={handelSearch} className="flex mt-5 flex-col md:flex-row px-3 justify-center items-center gap-3 mb-5 fixed w-full z-20 top-[60px] md:top-[75px] bg-[#ffffff3e] py-2">
+    
+         <div className=" xl:w-[40%] ">
+        
+              <input className="w-full  py-3 rounded-md placeholder:italic placeholder:text-text-slate-400 px-5 focus:outline-none border focus:border-[#61afcb]" name="text" placeholder="password.." />
+         </div>
+    
+            <input  className="bg-[#61afcb] font-semibold w-full md:w-32 text-white px-8 py-3 rounded-md " type='submit'  value='search' />
         </form>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 w-full xl:w-[90%] gap-5 xl:gap-10 mx-auto px-3 mt-20">
             {
-                users.map(item => <div key={item._id} className="relative">
-                    <Link to={`edit/${item._id}`} className="absolute right-5 top-5 p-3 border rounded-full text-[#3b82f6] hover:bg-[#3b82f6] hover:text-white duration-300 z-20"><FaPen /> </Link>
-                    <div className="flex gap-3 items-center  bg-white drop-shadow-2xl rounded-xl">
-                <img src={item?.image} alt="" className='w-36  xl:w-52 rounded-xl'/>
-                <div className='text-start pe-5 flex flex-col gap-2 xl:gap-4'>
-                    <h5 className='md:text-2xl xl:text-3xl font-semibold'>{item?.name}</h5>
-                    <span className='text-gray-500 text-sm'>Member science {item?.science}</span>
-                    <div className='text-gray-500 text-sm'>Title: <span className='font-bold text-[#1d1c1c]'>{item?.jobTitle}</span></div>
-                    <div className='text-gray-500 text-sm'>Email: <span className='font-bold text-[#1d1c1c]'>{item?.email}</span></div>
-                   <Link to={`/details/${item?._id}`}><button className='bg-blue-500 text-white font-semibold xl:font-bold px-2 py-1  xl:py-2 xl:px-3 rounded-md'>View Profile</button></Link>
-                    
-                   
-                </div>
-            </div>
-                </div>)
+              search ? searchUser?.map(item => <UserCard key={item?._id} item={item}/>) :  users?.map(item => <UserCard key={item?._id} item={item}/>)
             }
         </div>
         </>

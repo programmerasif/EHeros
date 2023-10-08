@@ -21,7 +21,7 @@ const SocialLogin = () => {
             showConfirmButton: false,
             timer: 1500
           });
-          
+          navigate('/')
           const user = result.user;
           console.log(user);
         })

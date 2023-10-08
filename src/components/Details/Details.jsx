@@ -6,7 +6,7 @@ const Details = () => {
 
     const [users,setUsers] = useState([])
     useEffect(() => {
-        fetch('https://user-profile-backend-pi.vercel.app/users')
+        fetch('http://localhost:5000/users')
         .then(response => response.json())
         .then(data => setUsers(data))
         
