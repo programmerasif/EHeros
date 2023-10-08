@@ -21,10 +21,10 @@ const AuthProviders = ({ children }) => {
         setloading(true)
         return signInWithPopup(auth, googleProvider)
     }
-    // const signUp = (email, password) => {
-    //     setloading(true)
-    //     return createUserWithEmailAndPassword(auth, email, password)
-    // }
+    const signUp = (email, password) => {
+        setloading(true)
+        return createUserWithEmailAndPassword(auth, email, password)
+    }
     
     const login = (email, password) => {
         setloading(true)
@@ -49,7 +49,7 @@ const AuthProviders = ({ children }) => {
         setloading,
         googleSignin,
         logOut,
-        // signUp,
+        signUp,
         login,
         // profileUpdate,
     }

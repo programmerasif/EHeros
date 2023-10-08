@@ -46,7 +46,7 @@ const Users = () => {
     
          <div className=" xl:w-[40%] ">
         
-              <input className="w-full  py-3 rounded-md placeholder:italic placeholder:text-text-slate-400 px-5 focus:outline-none border focus:border-[#61afcb]" name="text" placeholder="password.." />
+              <input className="w-full  py-3 rounded-md placeholder:italic placeholder:text-text-slate-400 px-5 focus:outline-none border focus:border-[#61afcb]" name="text" placeholder="Search..." />
          </div>
     
             <input  className="bg-[#61afcb] font-semibold w-full md:w-32 text-white px-8 py-3 rounded-md " type='submit'  value='search' />

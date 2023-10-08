@@ -5,6 +5,7 @@ import Main from "./Main/Main";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import EditPage from "./components/EditPage/EditPage";
+import Privaterout from "./Privaterout/Privaterout";
 
 
 
@@ -33,7 +34,7 @@ export const router = createBrowserRouter([
               },
               {
                 path: "edit/:id",
-                element:<EditPage />,
+                element: <Privaterout><EditPage /></Privaterout>,
                 loader: ({params}) => {return params }
               }
         ]

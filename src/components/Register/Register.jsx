@@ -1,10 +1,13 @@
 import SocialLogin from "../SocialLogin/SocialLogin";
 import logImg from '../../assets/login.jpg'
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProviders";
+import Swal from "sweetalert2";
 
 const Register = () => {
-    
-   
+  const { user, signUp, profileUpdate,setloading } = useContext(AuthContext)
+  const navigate = useNavigate()
    
     const handelRegister = (e) => {
         e.preventDefault();
@@ -12,8 +15,19 @@ const Register = () => {
             
             const email = form.username.value;
             const password = form.password.value;
-            
-      }
+            signUp(email,password)
+            .then((d) => {
+              const user = d.user;
+              Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Registered succesfull',
+                showConfirmButton: false,
+                timer: 1500
+              })
+              navigate('/')
+             
+            } ) }
     return (
         <div className="mt-32 flex md:flex-row flex-col justify-center items-center">
           <div>
