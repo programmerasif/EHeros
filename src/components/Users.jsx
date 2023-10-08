@@ -42,7 +42,7 @@ const Users = () => {
 
             <div className=" relative">
              <>
-       <form onSubmit={handelSearch} className="flex mt-5 flex-col md:flex-row px-3 justify-center items-center gap-3 mb-5 fixed w-full z-20 top-[60px] md:top-[75px] bg-[#ffffff3e] py-2">
+       <form onSubmit={handelSearch} className="flex mt-5 flex-col md:flex-row px-3 justify-center items-center gap-3 mb-5 fixed w-[80%] z-20 top-[60px] md:top-[75px] bg-[#ffffff3e] py-2">
     
          <div className=" xl:w-[40%] ">
         
